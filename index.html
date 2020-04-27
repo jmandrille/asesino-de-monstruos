@@ -14,22 +14,29 @@
             <div class="small-6 columns">
                 <h1 class="text-center">TU</h1>
                 <div class="curarthbar">
-                    <div class="curarthbar text-center" style="background-color: goldenrod; margin: 0; color: white;">
+                    <div 
+                            class="curarthbar text-center" 
+                            style="background-color: goldenrod; margin: 0; color: white;"
+                            :style="{width: jugadorSalud + '%'}">
+                        {{ jugadorSalud }}
                     </div>
                 </div>
             </div>
             <div class="small-6 columns">
                 <h1 class="text-center">MONSTRUO</h1>
                 <div class="curarthbar">
-                    <div class="curarthbar text-center"
-                        style="background-color: rgb(0, 81, 128); margin: 0; color: white;">
-             </div>
+                    <div 
+                            class="curarthbar text-center" 
+                            style="background-color: rgb(0, 81, 128); margin: 0; color: white;"
+                            :style="{width: monstruoSalud + '%'}">
+                        {{ monstruoSalud }}
+                    </div>
                 </div>
             </div>
         </section>
-        <section class="row controls">
+        <section class="row controls" v-if="!juegoIniciado">
             <div class="small-12 columns">
-                <button id="start-game">
+                <button id="start-game" @click="comenzarJuego">
                     EMPEZAR JUEGO NUEVO</button>
             </div>
         </section>

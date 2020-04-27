@@ -42,10 +42,10 @@
         </section>
         <section class="row controls" v-else>
             <div class="small-12 columns">
-                <button id="atacar" >ATACAR</button>
-                <button id="ataque-especial" >ATAQUE ESPECIAL</button>
-                <button id="curar" >CURAR</button>
-                <button id="rendirse" >RENDIRSE</button>
+                <button id="atacar" @click="atacar" >ATACAR</button>
+                <button id="ataque-especial" @click="ataqueespecial" >ATAQUE ESPECIAL</button>
+                <button id="curar" @click="curar" >CURAR</button>
+                <button id="rendirse" @click="rendirse" >RENDIRSE</button>
             </div>
         </section>
         <section class="row log">

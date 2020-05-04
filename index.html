@@ -1,34 +1,30 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Asesino de Monstruos</title>
     <script src="https://npmcdn.com/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="css/foundation.min.css">
     <link rel="stylesheet" href="css/app.css">
 </head>
-
 <body>
     <div id="app">
         <section class="row">
             <div class="small-6 columns">
                 <h1 class="text-center">TU</h1>
                 <div class="curarthbar">
-                    <div 
-                            class="curarthbar text-center" 
-                            style="background-color: goldenrod; margin: 0; color: white;"
-                            :style="{width: jugadorSalud + '%'}">
-                        {{ jugadorSalud }}
+                    <div class="curarthbar text-center" 
+                         style="background-color: goldenrod; margin: 0; color: white;"
+                         :style="{width: jugadorSalud + '%'}">
+                         {{ jugadorSalud }}
                     </div>
                 </div>
             </div>
             <div class="small-6 columns">
-                <h1 class="text-center">MONSTRUO</h1>
+                <h1 class="text-center">COVID-19</h1>
                 <div class="curarthbar">
-                    <div 
-                            class="curarthbar text-center" 
-                            style="background-color: rgb(0, 81, 128); margin: 0; color: white;"
-                            :style="{width: monstruoSalud + '%'}">
+                    <div class="curarthbar text-center" 
+                         style="background-color: rgb(0, 81, 128); margin: 0; color: white;"
+                         :style="{width: monstruoSalud + '%'}">
                         {{ monstruoSalud }}
                     </div>
                 </div>
@@ -43,17 +39,18 @@
         <section class="row controls" v-else>
             <div class="small-12 columns">
                 <button id="atacar" @click="atacar" >ATACAR</button>
-                <button id="ataque-especial" @click="ataqueespecial" >ATAQUE ESPECIAL</button>
+                <button id="ataque-especial" @click="ataqueEspecial" >ATAQUE ESPECIAL</button>
                 <button id="curar" @click="curar" >CURAR</button>
                 <button id="rendirse" @click="rendirse" >RENDIRSE</button>
             </div>
         </section>
-        <section class="row log">
+        <section class="row log" v-if="registroJugadas.length > 0">
             <div class="small-12 columns">
 
                 <ul>
-                    <li>
-                        
+                    <li v-for="j in registroJugadas"
+                        :class = "{'player-turno': j.esJugador, 'monster-turno': !j.esJugador}">
+                        {{j.mensaje}}                            
                     </li>
                 </ul>
 
